@@ -1,0 +1,177 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+  <body>
+    <div class="onReady">
+      <div class="sk-folding-cube">
+        <div class="sk-cube1 sk-cube"></div>
+        <div class="sk-cube2 sk-cube"></div>
+        <div class="sk-cube4 sk-cube"></div>
+        <div class="sk-cube3 sk-cube"></div>
+      </div>
+    </div>
+    <div>
+      <div class="searchSec ">
+        <input
+          type="text"
+          class="form-control Inp"
+          id="searchInp"
+          placeholder="get movie by word..."
+          onkeyup="searchMovie(this.value)"
+        />
+      </div>
+      <div class="container pt-4">
+        <div class="row" id="display"></div>
+      </div>
+    </div>
+
+    <div onkeyup="enableBtn()" id="contact" class="contactForm container w-75">
+      <h2 class="text-light my-5">Contac Us...</h2>
+      <div class="row">
+        <div class="col-md-6 p-4">
+          <input
+            type="text"
+            class="form-control Inp p-2"
+            id="nameInp"
+            placeholder="Enter Your Name"
+            onkeyup="nameVal(this.value)"
+          />
+          <small class="text-muted">name must be at least 2 words</small>
+          <div id="name" class="alert alert-danger d-none" role="alert">
+            entre valid name
+          </div>
+        </div>
+        <div class="col-md-6 p-4">
+          <input
+            type="email"
+            class="form-control Inp p-2"
+            id="emailInp"
+            placeholder="Enter Your Email"
+            onkeyup="emailVal(this.value)"
+          />
+          <small class="text-muted">example@exam.com</small>
+          <div id="email" class="alert alert-danger d-none" role="alert">
+            entre valid email
+          </div>
+        </div>
+        <div class="col-md-6 p-4">
+          <input
+            type="number"
+            class="form-control Inp p-2"
+            id="phoneInp"
+            placeholder="Enter Your Phone"
+            onkeyup="phoneVal(this.value)"
+          />
+          <small class="text-muted">must be 11 number</small>
+          <div id="phone" class="alert alert-danger d-none" role="alert">
+            entre valid phone
+          </div>
+        </div>
+        <div class="col-md-6 p-4">
+          <input
+            type="number"
+            class="form-control Inp p-2"
+            placeholder="Enter Your Age"
+            onkeyup="ageVal(this.value)"
+            id="ageInp"
+          />
+          <small class="text-muted">from 18 to 100</small>
+          <div id="age" class="alert alert-danger d-none" role="alert">
+            entre valid age
+          </div>
+        </div>
+        <div class="col-md-6 p-4">
+          <input
+            type="password"
+            class="form-control Inp p-2"
+            placeholder="Enter Your password"
+            onkeyup="passVal(this.value)"
+            id="passInp"
+          />
+          <small class="text-muted"
+            >must contain at least 1 litter, 1 number and must be 8 charecters
+          </small>
+          <div id="pass" class="alert alert-danger d-none" role="alert">
+            entre valid password
+          </div>
+        </div>
+        <div class="col-md-6 p-4">
+          <input
+            type="password"
+            class="form-control Inp p-2"
+            placeholder="Confirm Your Password"
+            onkeyup="rePassword(this.value)"
+            id="rePassInp"
+          />
+          <small class="text-muted">must be the same as your password</small>
+          <div id="rePass" class="alert alert-danger d-none" role="alert">
+            password not identical
+          </div>
+        </div>
+      </div>
+      <div class="my-3">
+        <button
+          disabled
+          id="submit"
+          type="submit"
+          class="btn btn-outline-success px-3 "
+          onclick="submit()"
+        >
+          Submit
+        </button>
+        <div
+          id="subMess"
+          class="alert alert-success float-right d-none"
+          role="alert"
+        >
+          <strong><i class="fas fa-check"></i></strong> Your Data Enterd
+          successfully
+        </div>
+      </div>
+    </div>
+
+    <div id="side-bar" class="side-bar d-flex">
+      <div id="menu" class="menu w-100">
+        <ul class="pt-3">
+          <li id="li-1" class="li-rev-1"><a class="choose" data-value="now_playing" href="#">Now playing</a></li>
+          <li id="li-2" class="li-rev-2"><a class="choose" data-value="popular" href="#">Popular</a class="choose"></li>
+          <li id="li-3" class="li-rev-3"><a class="choose" data-value="top_rated" href="#">Top Rated</a class="choose"></li>
+          <li id="li-4" class="li-rev-4"><a id="trend" href="#">Trending</a class="choose"></li>
+          <li id="li-5" class="li-rev-5"><a class="choose" data-value="upcoming" href="#">Upcoming</a class="choose"></li>
+          <li id="li-6" class="li-rev-6"><a href="#contact">Contact Us</a class="choose"></li>
+        </ul>
+        <div class="icons px-5">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fas fa-globe"></i>
+          <div class="pt-3">
+            <h5 class="text-muted">Copyright Â© 2019 All Rights Reserved.</h5>
+          </div>
+        </div>
+      </div>
+      <div
+        class="cont d-flex flex-column justify-content-between align-items-center h-100"
+      >
+        <div class="w-50 mt-3">
+          <img src="images/logo.png" class="img-fluid" />
+        </div>
+        <i id="openMenu" class="fa fa-align-justify fa-2x"></i>
+        <div class="mb-3">
+          <i class="fas fa-globe  side-icons"></i>
+          <br />
+          <br />
+          <i class="fas fa-share-alt  side-icons"></i>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
